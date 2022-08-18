@@ -1,0 +1,11 @@
+.main {
+  margin-left: 8rem;
+  margin-top: 3rem;
+  width: 90%;
+  max-width: auto;
+}
+
+.layout {
+  display: flex;
+  flex-direction: row;
+}

@@ -4,11 +4,9 @@
   background-color: transparent;
   border: 2px solid white;
   border-radius: 0.5rem;
-  position: relative;
+  text-align: center;
 }
 
 .type {
-  position: absolute;
-
-  font-size: 2rem;
+  margin-top: 0.3rem;
 }

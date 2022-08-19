@@ -2,7 +2,13 @@ import MovieGrid from "../../../components/movies/movie-grid";
 import { fetchData } from "../../../helpers/api-util";
 
 const MoviesByGenrePage = (props) => {
-  return <MovieGrid movies={props.movies} basePath="/movies"></MovieGrid>;
+  return (
+    <MovieGrid
+      movies={props.movies}
+      basePath="/movies"
+      trending={false}
+    ></MovieGrid>
+  );
 };
 
 export async function getStaticProps(context) {

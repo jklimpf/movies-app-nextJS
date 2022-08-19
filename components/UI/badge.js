@@ -1,4 +1,4 @@
-import classes from "./Badge.module.css";
+import classes from "./badge.module.css";
 
 const Badge = (props) => {
   return (

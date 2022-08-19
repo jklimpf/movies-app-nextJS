@@ -24,7 +24,9 @@ const Trending = (props) => {
     <div className={classes.container}>
       <div className={classes.header}>
         <h1>Trending</h1>
-        <Badge type={results[0].media_type}></Badge>
+        <div className={classes.badge}>
+          <Badge type={results[0].media_type}></Badge>
+        </div>
       </div>
       <div className={classes.wrapper}>
         <button onClick={transformLeftHandler} className={classes.left}>

@@ -2,9 +2,13 @@ import MovieItem from "./movie-item";
 import classes from "./movie-grid.module.css";
 import Link from "next/link";
 import { useRouter } from "next/router";
+import Badge from "../UI/badge";
 
 const MovieGrid = (props) => {
   const router = useRouter();
+
+  if (!props) return <p>Loading...</p>;
+
   const { results } = props.movies;
   const { query } = router;
 
@@ -25,6 +29,16 @@ const MovieGrid = (props) => {
 
   return (
     <div className={classes.container}>
+      {props.trending && (
+        <div className={classes.header}>
+          <h1>Top rated</h1>
+          <div className={classes.badge}>
+            <Badge
+              type={props.basePath.includes("movie") ? "movie" : "TV"}
+            ></Badge>
+          </div>
+        </div>
+      )}
       <div className={classes.movieGrid}>
         {results.map((movie) => (
           <Link key={movie.id} href={`${props.basePath}/${movie.id}`}>
@@ -41,16 +55,18 @@ const MovieGrid = (props) => {
           </Link>
         ))}
       </div>
-      <div className={classes.pages}>
-        {props.movies.page > 1 && (
-          <button onClick={prevPageHandler}>Prev</button>
-        )}
-        <p>
-          Page {props.movies.page} of{" "}
-          {props.movies.total_pages > 500 ? "500" : props.movies.total_pages}
-        </p>
-        <button onClick={nextPageHandler}>Next</button>
-      </div>
+      {props.trending || (
+        <div className={classes.pages}>
+          {props.movies.page > 1 && (
+            <button onClick={prevPageHandler}>Prev</button>
+          )}
+          <p>
+            Page {props.movies.page} of{" "}
+            {props.movies.total_pages > 500 ? "500" : props.movies.total_pages}
+          </p>
+          <button onClick={nextPageHandler}>Next</button>
+        </div>
+      )}
     </div>
   );
 };

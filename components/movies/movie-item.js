@@ -10,6 +10,7 @@ const MovieItem = (props) => {
         alt={props.id}
         width={350}
         height={250}
+        className={classes.img}
       ></Image>
       <p>{props.basePath.includes("movies") ? props.title : props.name}</p>
     </div>

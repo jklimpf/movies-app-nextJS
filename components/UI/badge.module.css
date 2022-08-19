@@ -1,0 +1,14 @@
+.badge {
+  height: 30px;
+  width: 60px;
+  background-color: transparent;
+  border: 2px solid white;
+  border-radius: 0.5rem;
+  position: relative;
+}
+
+.type {
+  position: absolute;
+
+  font-size: 2rem;
+}

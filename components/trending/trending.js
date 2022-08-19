@@ -1,6 +1,7 @@
 import TrendingItem from "./trending-item";
 import classes from "./trending.module.css";
 import { useRef } from "react";
+import Badge from "../UI/badge";
 
 const Trending = (props) => {
   const carouselRef = useRef();
@@ -12,14 +13,19 @@ const Trending = (props) => {
   const transformLeftHandler = function () {
     carouselRef.current.scrollLeft -= 800;
   };
+
+  if (!props) return <p>Loading...</p>;
+
   const { results } = props.movies;
-  console.log(results);
 
   if (!results) return <p>Loading...</p>;
 
   return (
     <div className={classes.container}>
-      <h1>Trending</h1>
+      <div className={classes.header}>
+        <h1>Trending</h1>
+        <Badge type={results[0].media_type}></Badge>
+      </div>
       <div className={classes.wrapper}>
         <button onClick={transformLeftHandler} className={classes.left}>
           <p className={classes.arrow}>&lt;</p>
@@ -29,8 +35,10 @@ const Trending = (props) => {
             <TrendingItem
               key={movie.id}
               poster={movie.backdrop_path}
-              title={movie.name}
-              year={movie.first_air_date}
+              title={movie.name || movie.title}
+              year={movie.first_air_date || movie.release_date}
+              type={movie.media_type}
+              id={movie.id}
             ></TrendingItem>
           ))}
         </div>

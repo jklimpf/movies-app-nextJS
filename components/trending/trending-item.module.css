@@ -24,8 +24,13 @@
 }
 
 .title {
-  margin-bottom: -1.3rem;
-}
-.year {
   margin-bottom: 0.7rem;
+}
+
+.typeYear {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: -2.8rem;
+  text-shadow: 0 0 6px black;
 }

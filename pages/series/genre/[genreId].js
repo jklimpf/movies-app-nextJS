@@ -13,6 +13,7 @@ const ShowsByGenrePage = (props) => {
 
 export async function getStaticProps(context) {
   const params = context.params;
+  console.log(params);
   const pageNum = params.genreId.split("=")[1];
   const queryId = params.genreId.split("&")[0];
 

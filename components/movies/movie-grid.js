@@ -41,7 +41,12 @@ const MovieGrid = (props) => {
       )}
       <div className={classes.movieGrid}>
         {results.map((movie) => (
-          <Link key={movie.id} href={`${props.basePath}/${movie.id}`}>
+          <Link
+            key={movie.id}
+            href={`/${movie.media_type === "movie" ? "movies" : "series"}/${
+              movie.id
+            }`}
+          >
             <a>
               <MovieItem
                 basePath={props.basePath}

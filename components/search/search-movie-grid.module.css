@@ -1,0 +1,31 @@
+.container {
+  margin-top: rem;
+}
+
+.movieGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+}
+
+.pages {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 3rem;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  gap: 1.2rem;
+}
+
+.badge {
+  margin-top: 0.5rem;
+}

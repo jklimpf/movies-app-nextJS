@@ -2,12 +2,12 @@ import Trending from "../components/trending/trending";
 import { fetchData } from "../helpers/api-util";
 import { Fragment } from "react";
 import MovieGrid from "../components/movies/movie-grid";
+import Search from "../components/search/search";
 
 const HomePage = (props) => {
-  console.log(props.dataTopRatedMovies);
-
   return (
     <Fragment>
+      <Search></Search>
       <Trending movies={props.dataMovies}></Trending>
       <MovieGrid
         movies={props.dataTopRatedMovies}

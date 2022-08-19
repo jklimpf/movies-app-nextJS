@@ -11,6 +11,7 @@ const Details = (props) => {
   const posterPath = "https://image.tmdb.org/t/p/original";
 
   useEffect(() => {
+    if (Object.keys(query).length === 0) return;
     fetchData(
       `https://api.themoviedb.org/3/${props.type}/${
         props.type === "tv" ? query.show : query.movieId
@@ -29,6 +30,7 @@ const Details = (props) => {
         alt={movie.id}
         width={500}
         height={350}
+        priority
       ></Image>
       <p>{movie.overview}</p>
     </div>

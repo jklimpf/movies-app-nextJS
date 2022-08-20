@@ -12,6 +12,8 @@ const MovieGrid = (props) => {
   const { results } = props.movies;
   const { query } = router;
 
+  console.log(results);
+
   const prevPageHandler = () => {
     router.push(
       `${props.basePath}/genre/${query.genreId.split("&")[0]}&page=${
@@ -43,7 +45,7 @@ const MovieGrid = (props) => {
         {results.map((movie) => (
           <Link
             key={movie.id}
-            href={`/${movie.media_type === "movie" ? "movies" : "series"}/${
+            href={`/${props.basePath.includes("movie") ? "movies" : "series"}/${
               movie.id
             }`}
           >

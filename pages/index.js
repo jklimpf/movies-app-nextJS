@@ -7,7 +7,7 @@ import Search from "../components/search/search";
 const HomePage = (props) => {
   return (
     <Fragment>
-      <Search></Search>
+      <Search type="all"></Search>
       <Trending movies={props.dataMovies}></Trending>
       <MovieGrid
         movies={props.dataTopRatedMovies}

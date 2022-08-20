@@ -7,14 +7,33 @@ const SearchMovieGrid = (props) => {
   const router = useRouter();
   const { movies } = props;
 
-  const searchedMovie = router.query.search.split("&")[0];
-  console.log(searchedMovie);
+  const searchedMovie =
+    (props.type === "all" && router.query.search.split("&")[0]) ||
+    (props.type === "movies" && router.query.searchedMovie.split("&")[0]) ||
+    (props.type === "series" && router.query.searchedSeries.split("&")[0]);
+
+  let pathForw;
+  let pathBackw;
+
+  if (props.type === "all") {
+    pathBackw = `${searchedMovie}&page=${props.dataObject.page - 1}`;
+    pathForw = `${searchedMovie}&page=${props.dataObject.page + 1}`;
+  }
+
+  if (props.type === "movies") {
+    pathBackw = `${searchedMovie}&page=${props.dataObject.page - 1}`;
+    pathForw = `${searchedMovie}&page=${props.dataObject.page + 1}`;
+  }
+  if (props.type === "series") {
+    pathBackw = `${searchedMovie}&page=${props.dataObject.page - 1}`;
+    pathForw = `${searchedMovie}&page=${props.dataObject.page + 1}`;
+  }
 
   const prevPageHandler = () => {
-    router.push(`${searchedMovie}&page=${props.dataObject.page - 1}`);
+    router.push(pathBackw);
   };
   const nextPageHandler = () => {
-    router.push(`${searchedMovie}&page=${props.dataObject.page + 1}`);
+    router.push(pathForw);
   };
 
   return (
@@ -23,13 +42,25 @@ const SearchMovieGrid = (props) => {
         {movies.map((movie) => (
           <Link
             key={movie.id}
-            href={`/${movie.media_type === "movie" ? "movies" : "series"}/${
-              movie.id
-            }`}
+            href={`/${
+              movie.media_type === "movie"
+                ? "movies"
+                : movie.media_type === "tv"
+                ? "series"
+                : !movie.media_type
+                ? props.type
+                : null
+            }/${movie.id}`}
           >
             <a>
               <MovieItem
-                basePath={movie.media_type === "movie" ? "movies" : "series"}
+                basePath={
+                  movie.media_type === "movie"
+                    ? "movies"
+                    : movie.media_type === "tv"
+                    ? "series"
+                    : props.type
+                }
                 id={movie.id}
                 name={movie.name}
                 title={movie.title}

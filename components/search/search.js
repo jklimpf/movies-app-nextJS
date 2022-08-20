@@ -9,11 +9,17 @@ const Search = (props) => {
   const submitHandler = async (e) => {
     e.preventDefault();
 
+    let path;
+
     const search = searchRef.current.value;
 
-    console.log(search);
+    if (props.type === "all") path = `/search-results/${search}`;
 
-    router.push(`/search-results/${search}`);
+    if (props.type === "movie") path = `/search-results/movies/${search}`;
+
+    if (props.type === "series") path = `/search-results/series/${search}`;
+
+    router.push(path);
   };
 
   return (
@@ -21,7 +27,13 @@ const Search = (props) => {
       <input
         type="text"
         ref={searchRef}
-        placeholder="Search for movies and TV shows"
+        placeholder={`${
+          props.type === "all"
+            ? "Search movies and shows"
+            : props.type === "movie"
+            ? "Search movies"
+            : "Search shows"
+        }`}
       />
       <button>Search</button>
     </form>

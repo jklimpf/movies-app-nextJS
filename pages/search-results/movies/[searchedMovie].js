@@ -22,7 +22,6 @@ const SearcheMoviePage = (props) => {
 
 export async function getStaticProps(context) {
   const params = context.params.searchedMovie;
-  console.log(params);
   const paramsConcat = params.split(" ").join("?");
 
   const data = await fetchData(

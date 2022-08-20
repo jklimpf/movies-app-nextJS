@@ -1,0 +1,80 @@
+.otherData {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+}
+
+.otherData div p {
+  margin-top: -1rem;
+}
+.overview {
+  max-width: 50rem;
+}
+
+.upper {
+  display: flex;
+  gap: 2rem;
+}
+
+.right {
+  display: flex;
+  flex-direction: column;
+}
+
+.genre {
+  display: flex;
+  gap: 1rem;
+}
+
+.genre div {
+  border: 1px solid white;
+  padding: 0.2rem;
+  border-radius: 5px;
+  margin-top: -0.8rem;
+}
+
+.links {
+  display: flex;
+  margin-top: 2.8rem;
+  gap: 1rem;
+}
+
+.imbd {
+  width: 5rem;
+  padding: 0.3rem;
+  border-radius: 5px;
+  background-color: white;
+  color: black;
+  text-align: center;
+  transition: 0.2s ease-in-out;
+}
+
+.imbd:hover {
+  background-color: rgb(143, 142, 142);
+}
+
+.rate {
+  width: 1.4rem;
+  height: 1.4rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 2px solid white;
+  border-radius: 50%;
+  padding: 0.2rem;
+  font-size: 1rem;
+}
+
+@media screen and (max-width: 1150px) {
+  .upper {
+    flex-direction: column;
+  }
+}
+
+@media screen and (max-width: 900px) {
+  .container {
+    margin-top: 5rem;
+  }
+}
+@media screen and (max-width: 500px) {
+}

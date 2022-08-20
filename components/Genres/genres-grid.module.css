@@ -3,3 +3,16 @@
   grid-template-columns: repeat(3, 1fr);
   gap: 1rem;
 }
+
+@media screen and (max-width: 900px) {
+  .genreGrid {
+    margin-top: 5rem;
+  }
+}
+@media screen and (max-width: 500px) {
+  .genreGrid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+  }
+}

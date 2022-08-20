@@ -1,4 +1,3 @@
-import Image from "next/image";
 import Link from "next/link";
 import classes from "./trending-item.module.css";
 

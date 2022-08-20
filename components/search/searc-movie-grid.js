@@ -2,6 +2,7 @@ import classes from "./search-movie-grid.module.css";
 import MovieItem from "../movies/movie-item";
 import Link from "next/link";
 import { useRouter } from "next/router";
+import Pages from "../pageNav/pages";
 
 const SearchMovieGrid = (props) => {
   const router = useRouter();
@@ -66,25 +67,20 @@ const SearchMovieGrid = (props) => {
                 title={movie.title}
                 poster={movie.backdrop_path}
                 posterBackup={movie.poster_path}
+                year={movie.release_date || movie.first_air_date || "N/D"}
+                rate={movie.vote_average || -1}
+                type={movie.media_type}
               ></MovieItem>
             </a>
           </Link>
         ))}
       </div>
-      <div className={classes.pages}>
-        {props.dataObject.page > 1 && (
-          <button onClick={prevPageHandler}>Prev</button>
-        )}
-        <p>
-          Page {props.dataObject.page} of{" "}
-          {props.dataObject.total_pages > 500
-            ? "500"
-            : props.dataObject.total_pages}
-        </p>
-        {props.dataObject.page < props.dataObject.total_pages && (
-          <button onClick={nextPageHandler}>Next</button>
-        )}
-      </div>
+      <Pages
+        page={props.dataObject.page}
+        totalPages={props.dataObject.total_pages}
+        onPrevPage={prevPageHandler}
+        onNextPage={nextPageHandler}
+      ></Pages>
     </div>
   );
 };

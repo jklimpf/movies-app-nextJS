@@ -3,6 +3,7 @@ import classes from "./movie-grid.module.css";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import Badge from "../UI/badge";
+import Pages from "../pageNav/pages";
 
 const MovieGrid = (props) => {
   const router = useRouter();
@@ -11,8 +12,6 @@ const MovieGrid = (props) => {
 
   const { results } = props.movies;
   const { query } = router;
-
-  console.log(results);
 
   const prevPageHandler = () => {
     router.push(
@@ -55,24 +54,22 @@ const MovieGrid = (props) => {
                 id={movie.id}
                 name={movie.name}
                 title={movie.title}
+                year={movie.release_date || movie.first_air_date || "N/D"}
                 poster={movie.backdrop_path}
                 posterBackup={movie.poster_path}
+                rate={movie.vote_average || -1.0}
               ></MovieItem>
             </a>
           </Link>
         ))}
       </div>
       {props.trending || (
-        <div className={classes.pages}>
-          {props.movies.page > 1 && (
-            <button onClick={prevPageHandler}>Prev</button>
-          )}
-          <p>
-            Page {props.movies.page} of{" "}
-            {props.movies.total_pages > 500 ? "500" : props.movies.total_pages}
-          </p>
-          <button onClick={nextPageHandler}>Next</button>
-        </div>
+        <Pages
+          page={props.movies.page}
+          totalPages={props.movies.total_pages}
+          onPrevPage={prevPageHandler}
+          onNextPage={nextPageHandler}
+        ></Pages>
       )}
     </div>
   );

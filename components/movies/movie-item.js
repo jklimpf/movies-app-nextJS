@@ -1,10 +1,11 @@
 import classes from "./movie-item.module.css";
 import Image from "next/image";
+import MovieCardDetails from "../UI/movie-card-details";
 
 const MovieItem = (props) => {
   const posterPath = "https://image.tmdb.org/t/p/original";
   return (
-    <div>
+    <div className={classes.item}>
       <Image
         src={`${posterPath}${props.poster || props.posterBackup}`}
         alt={props.id}
@@ -12,7 +13,12 @@ const MovieItem = (props) => {
         height={250}
         className={classes.img}
       ></Image>
-      <p>{props.basePath.includes("movies") ? props.title : props.name}</p>
+      <MovieCardDetails
+        title={props.name || props.title}
+        year={props.year}
+        type={props.type}
+        rate={props.rate}
+      ></MovieCardDetails>
     </div>
   );
 };

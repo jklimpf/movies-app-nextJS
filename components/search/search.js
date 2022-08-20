@@ -1,6 +1,7 @@
 import classes from "./search.module.css";
 import { useRef } from "react";
 import { useRouter } from "next/router";
+import { FaSearch } from "react-icons/fa";
 
 const Search = (props) => {
   const searchRef = useRef();
@@ -13,6 +14,8 @@ const Search = (props) => {
 
     const search = searchRef.current.value;
 
+    if (search.trim().length === 0) return;
+
     if (props.type === "all") path = `/search-results/${search}`;
 
     if (props.type === "movie") path = `/search-results/movies/${search}`;
@@ -23,7 +26,7 @@ const Search = (props) => {
   };
 
   return (
-    <form onSubmit={submitHandler}>
+    <form onSubmit={submitHandler} className={classes.form}>
       <input
         type="text"
         ref={searchRef}

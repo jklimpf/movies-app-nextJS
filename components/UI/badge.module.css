@@ -10,3 +10,17 @@
 .type {
   margin-top: 0.3rem;
 }
+
+@media screen and (max-width: 900px) {
+  .badge {
+    height: 20px;
+    width: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 0.7rem;
+  }
+  .badge p {
+    margin-top: 0.7rem;
+  }
+}

@@ -9,4 +9,23 @@
   color: aliceblue;
   font-size: 2rem;
   border-radius: 15px;
+  transition: 0.6s ease;
+  text-align: center;
+}
+
+.genre:hover {
+  transform: translateY(-0.2rem);
+
+  transition: 0.6s ease;
+}
+
+@media screen and (max-width: 900px) {
+  .genre {
+    font-size: 1.5rem;
+  }
+}
+@media screen and (max-width: 500px) {
+  .genreGrid {
+    font-size: 1rem;
+  }
 }

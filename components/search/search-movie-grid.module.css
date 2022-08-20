@@ -1,23 +1,13 @@
-.container {
-  margin-top: rem;
-}
-
 .movieGrid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 1rem;
+  margin-right: 1rem;
 }
 
 .container {
   display: flex;
   flex-direction: column;
-}
-
-.pages {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-top: 3rem;
 }
 
 .header {
@@ -28,4 +18,15 @@
 
 .badge {
   margin-top: 0.5rem;
+}
+
+@media screen and (max-width: 900px) {
+  .movieGrid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+@media screen and (max-width: 500px) {
+  .movieGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }

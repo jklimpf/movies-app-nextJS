@@ -20,7 +20,6 @@ const HomePage = (props) => {
         basePath="/series"
         trending={true}
       ></MovieGrid>
-      ;
     </Fragment>
   );
 };

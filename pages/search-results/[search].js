@@ -5,7 +5,6 @@ import Search from "../../components/search/search";
 
 const SearchResultsPage = (props) => {
   const searchedMovies = props.searchData.results;
-  console.log(props.searchData);
 
   if (!searchedMovies) return <p>Loading...</p>;
 

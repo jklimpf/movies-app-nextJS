@@ -2,6 +2,13 @@
   height: 300;
   width: 450px;
   position: relative;
+  transition: 0.3s ease;
+}
+
+.card:hover {
+  transform: rotateZ(1deg);
+
+  transition: 0.6s ease;
 }
 
 .img {

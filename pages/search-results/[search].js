@@ -1,5 +1,7 @@
 import SearchMovieGrid from "../../components/search/searc-movie-grid";
 import { fetchData } from "../../helpers/api-util";
+import { Fragment } from "react";
+import Search from "../../components/search/search";
 
 const SearchResultsPage = (props) => {
   const searchedMovies = props.searchData.results;
@@ -8,10 +10,14 @@ const SearchResultsPage = (props) => {
   if (!searchedMovies) return <p>Loading...</p>;
 
   return (
-    <SearchMovieGrid
-      movies={searchedMovies}
-      dataObject={props.searchData}
-    ></SearchMovieGrid>
+    <Fragment>
+      <Search type="all"></Search>
+      <SearchMovieGrid
+        type="all"
+        movies={searchedMovies}
+        dataObject={props.searchData}
+      ></SearchMovieGrid>
+    </Fragment>
   );
 };
 

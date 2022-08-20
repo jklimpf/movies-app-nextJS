@@ -1,13 +1,18 @@
 import { fetchData } from "../../../helpers/api-util";
 import MovieGrid from "../../../components/movies/movie-grid";
+import Search from "../../../components/search/search";
+import { Fragment } from "react";
 
 const ShowsByGenrePage = (props) => {
   return (
-    <MovieGrid
-      movies={props.movies}
-      basePath="/series"
-      trending={false}
-    ></MovieGrid>
+    <Fragment>
+      <Search type="series"></Search>
+      <MovieGrid
+        movies={props.movies}
+        basePath="/series"
+        trending={false}
+      ></MovieGrid>
+    </Fragment>
   );
 };
 

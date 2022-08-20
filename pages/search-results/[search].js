@@ -37,7 +37,7 @@ export function getStaticPaths() {
   return {
     paths: [
       {
-        params: { search: "" },
+        params: { search: "the" },
       },
     ],
     fallback: "blocking",

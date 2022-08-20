@@ -37,7 +37,7 @@ export function getStaticPaths() {
   return {
     paths: [
       {
-        params: { searchedMovie: "" },
+        params: { searchedMovie: "the" },
       },
     ],
     fallback: "blocking",

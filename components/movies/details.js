@@ -18,7 +18,7 @@ const Details = (props) => {
         props.type === "tv" ? query.show : query.movieId
       }?api_key=2790a959466e0fce63ff081155b3b55f`
     ).then((data) => setMovie(data));
-  }, [query.movieId, query.show]);
+  }, [query.movieId, query.show, props.type, query]);
 
   if (!movie) return <p>Loading...</p>;
 

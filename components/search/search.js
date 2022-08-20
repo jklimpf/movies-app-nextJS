@@ -1,7 +1,6 @@
 import classes from "./search.module.css";
 import { useRef } from "react";
 import { useRouter } from "next/router";
-import { FaSearch } from "react-icons/fa";
 
 const Search = (props) => {
   const searchRef = useRef();
